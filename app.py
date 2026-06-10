@@ -75,7 +75,7 @@ c4.metric("ROC-AUC",    f"{meta['roc_auc']:.4f}")
 st.markdown("---")
 st.subheader("Confusion Matrix")
 if os.path.exists("static/confusion_matrix.png"):
-    st.image("static/confusion_matrix.png", use_column_width=True)
+    st.image("static/confusion_matrix.png", width="strech")
     cm = meta["confusion_matrix"]
     st.caption(
         f"TN={cm['tn']:,} (correctly identified normal) | "
@@ -90,7 +90,7 @@ else:
 st.markdown("---")
 st.subheader("Anomaly Detection Visualisation (PCA 2D Projection)")
 if os.path.exists("static/anomaly_scatter.png"):
-    st.image("static/anomaly_scatter.png", use_column_width=True)
+    st.image("static/anomaly_scatter.png", width="strech")
     st.caption(
         "Left: true labels. Right: Isolation Forest predictions. "
         "PCA reduces 29 V-features to 2D for visualisation."
@@ -102,7 +102,7 @@ else:
 st.markdown("---")
 st.subheader("Anomaly Score Distribution")
 if os.path.exists("static/score_distribution.png"):
-    st.image("static/score_distribution.png", use_column_width=True)
+    st.image("static/score_distribution.png", width="strech")
     st.caption(
         f"Normal avg score: {meta['score_normal_mean']:.4f} | "
         f"Fraud avg score: {meta['score_fraud_mean']:.4f}. "
@@ -116,7 +116,7 @@ else:
 st.markdown("---")
 st.subheader("Top Features by Anomaly Importance")
 if os.path.exists("static/feature_importance.png"):
-    st.image("static/feature_importance.png", use_column_width=True)
+    st.image("static/feature_importance.png", width="strech")
     st.caption(
         "Permutation-based importance: each feature is shuffled on fraud samples; "
         "larger mean score shift = more influential for anomaly detection."
@@ -128,7 +128,7 @@ else:
 st.markdown("---")
 st.subheader("Threshold Analysis: Precision / Recall / F1")
 if os.path.exists("static/threshold_analysis.png"):
-    st.image("static/threshold_analysis.png", use_column_width=True)
+    st.image("static/threshold_analysis.png", width="strech")
     st.caption(
         "Varying the decision threshold reveals the precision-recall trade-off. "
         "In fraud detection, high recall is often prioritised to minimise missed fraud (FN)."
